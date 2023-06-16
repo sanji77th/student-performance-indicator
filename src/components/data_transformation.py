@@ -31,8 +31,8 @@ class DataTransformation:
 
         try:
             numerical_columns = ['writing_score','reading_score']
-            categorical_columns = ['gender','lunch','race_ethnicity','parental_level_of_education','test_preperation_course']
-        
+            categorical_columns = ['gender','lunch','race_ethnicity','parental_level_of_education','test_preparation_course']
+                                                                                                    
             num_pipeline = Pipeline(steps=[
                 ("imputer",SimpleImputer(strategy="mean")),
                 ("scaler",StandardScaler())
@@ -93,7 +93,7 @@ class DataTransformation:
             logging.info(f"Applying preprocessing object on training dataframe and testing dataframe.")
 
 
-            input_feature_train_arr = preprocesser_obj.fit_transform(input_feature_train_arr)
+            input_feature_train_arr = preprocesser_obj.fit_transform(input_feature_train_df)
             input_feature_test_arr = preprocesser_obj.fit_transform(input_feature_test_df)
 
 
@@ -119,3 +119,5 @@ class DataTransformation:
 
         except Exception as e:
             raise customException(e,sys)
+        
+
